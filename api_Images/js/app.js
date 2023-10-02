@@ -50,19 +50,21 @@ function mostrarAlerta(msg) {
     }
 }
 
-function burcasImagenes() {
+async function burcasImagenes() {
     const termino = document.querySelector('#termino').value;
 
     const key = '39613122-d6ea613aecbcb59f452a6e8de';
     const url = `https://pixabay.com/api/?key=${key}&q=${termino}&per_page=${totalPaginas}&page=${paginaActual}`;
 
-    fetch(url)
-        .then(respuesta => respuesta.json())
-        .then(resultado => {
-            totalPaginas = calcularPaginas(resultado.totalHits);
-            console.log(totalPaginas);
-            mostrarImagenes(resultado.hits);
-        })
+    
+    try {
+        const respuesta = await fetch(url);
+        const resultado = await respuesta.json();
+        totalPaginas = calcularPaginas(resultado.totalHits);
+        mostrarImagenes(resultado.hits);
+    } catch (error) {
+        console.log(error)
+    }
 }  
 
 //Generador que va a registrar la cantidad
