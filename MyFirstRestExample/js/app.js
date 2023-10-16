@@ -2,7 +2,7 @@ import {obtenerClientes, eliminarCliente} from './API.js';
 
 (function() {
     const listado = document.querySelector('#listado-clientes')
-    listado.addEventListener('DOMContentLoaded', mostrarClientes())
+    document.addEventListener('DOMContentLoaded', mostrarClientes())
 
     listado.addEventListener('click', confirmarEliminar)
     async function mostrarClientes() {

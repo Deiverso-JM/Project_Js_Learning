@@ -19,7 +19,6 @@ export const nuevoCliente = async cliente => {
 
 
 export const obtenerClientes = async ()=>{
-
     try {
         const resultado = await fetch(url)
         const clientes = await resultado.json()
