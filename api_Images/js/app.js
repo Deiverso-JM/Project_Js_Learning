@@ -29,6 +29,10 @@ function validarFormulario(e) {
     
 }
 
+array.forEach(element => {
+    
+});
+
 
 function mostrarAlerta(msg) {
     
